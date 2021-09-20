@@ -1,0 +1,10 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t prion4362/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run prion4362/docker-react npm run test -- --coverage
+  
